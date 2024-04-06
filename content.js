@@ -1,4 +1,11 @@
-var meta = document.createElement('meta');
-meta.name = 'viewport';
-meta.content = 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no';
-document.getElementsByTagName('head')[0].appendChild(meta);
+document.addEventListener('DOMContentLoaded', function() {
+    var metaViewport = document.querySelector('meta[name="viewport"]');
+    if (metaViewport) {
+      metaViewport.setAttribute('content', 'user-scalable=no');
+    } else {
+      metaViewport = document.createElement('meta');
+      metaViewport.setAttribute('name', 'viewport');
+      metaViewport.setAttribute('content', 'user-scalable=no');
+      document.head.appendChild(metaViewport);
+    }
+  });
